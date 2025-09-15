@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #fde_hex;
+    --primary-pink: #e91e63;
+    --dark-pink: #ad1457;
+    --light-pink: #f8bbd0;
+    --text-color: #4e4e4e;
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 10vh 20px 40px 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 100%;
+    max-width: 700px;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding-top: 50px; /* Space for music button */
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    color: var(--primary-pink);
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(233, 30, 99, 0.2);
+}
+
+.ucapan {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 20px 0 40px 0;
+}
+
+.scroll-down {
+    animation: bounce 2s infinite;
+}
+.scroll-down i { font-size: 1.5rem; color: var(--primary-pink); }
+.scroll-down p { font-size: 0.8rem; margin-top: 5px; letter-spacing: 1px; }
+
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+
+/* Section headings */
+h2 {
+    font-size: 2rem;
+    color: var(--dark-pink);
+    margin-bottom: 30px;
+}
+
+/* Gallery Section */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 4px solid var(--light-pink);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.gallery img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.gallery-caption {
+    margin-top: 20px;
+    font-style: italic;
+    color: #777;
+}
+
+/* Reasons Section */
+.reasons-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+}
+.reasons-section li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.reasons-section .fa-heart {
+    color: var(--primary-pink);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+/* Coupon Section */
+.coupon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.coupon {
+    background: linear-gradient(145deg, #fff, #f9f9f9);
+    border-left: 10px dashed var(--light-pink);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex-basis: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.coupon:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+.coupon i {
+    font-size: 2.5rem;
+    color: var(--primary-pink);
+    margin-bottom: 10px;
+}
+.coupon h3 {
+    color: var(--dark-pink);
+    margin: 10px 0 5px 0;
+}
+.coupon p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+}
+
+/* Modal */
+.modal { display: none; position: fixed; z-index: 1001; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.9); }
+.modal-content { margin: auto; display: block; width: 80%; max-width: 700px; animation-name: zoom; animation-duration: 0.6s; }
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+.close-modal { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; }
+.close-modal:hover, .close-modal:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -22px; color: white; font-weight: bold; font-size: 20px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; }
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(255,255,255,0.2); }
+
+/* Reveal on Scroll Animation */
+.reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Floating Hearts */
+.hearts-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.heart { position: absolute; width: 20px; height: 20px; background-color: var(--primary-pink); transform: rotate(-45deg); animation: floatUp 10s infinite; }
+.heart::before, .heart::after { content: ''; width: 20px; height: 20px; background-color: var(--primary-pink); border-radius: 50%; position: absolute; }
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: 10px; }
+@keyframes floatUp { 0% { bottom: -10%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { bottom: 110%; opacity: 0; } }
+
+/* Music Button */
+#music-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+#music-toggle { background: var(--card-bg); border: 1px solid var(--light-pink); color: var(--primary-pink); width: 50px; height: 50px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+
+/* TAMBAHKAN KODE DI BAWAH INI KE style.css */
+
+/* Invitation Section Styling */
+.invitation-section {
+    background: linear-gradient(135deg, #fff1f5, #fde_hex); /* Nuansa pink sangat lembut */
+    border-top: 5px solid var(--primary-pink);
+}
+
+.invitation-icon {
+    font-size: 3.5rem;
+    color: var(--primary-pink);
+    margin: 10px 0 20px 0;
+    /* Animasi kecil agar ikon lebih hidup */
+    animation: tada 1.5s ease-in-out 1s; 
+}
+
+.invitation-intro {
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+}
+
+.invitation-details {
+    border: 2px dashed var(--light-pink);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}
+
+.invitation-details h3 {
+    text-align: center;
+    color: var(--dark-pink);
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid #fce4ec;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item strong {
+    color: var(--dark-pink);
+    margin-right: 15px;
+    flex-shrink: 0; /* Mencegah teks strong terpotong */
+}
+
+.detail-item strong i {
+    margin-right: 8px; /* Jarak antara ikon dan teks */
+    width: 20px; /* Lebar ikon agar rata */
+    text-align: center;
+}
+
+.detail-item span {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-left: auto; /* Mendorong span ke kanan */
+    text-align: right;
+}
+
+.invitation-outro {
+    margin-top: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--dark-pink);
+}
+
+/* Keyframe untuk animasi ikon "tada" */
+@keyframes tada {
+  from { transform: scale3d(1, 1, 1); }
+  10%, 20% { transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); }
+  30%, 50%, 70%, 90% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
+  40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
+  to { transform: scale3d(1, 1, 1); }
+}
